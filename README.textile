@@ -2,4 +2,4 @@ h1(#nginx_redis_subscriber_module). Nginx Redis Subscriber Module
 
 Redis subscriber module for nginx. Received messages are broadcast through WebSocket interface.
 
-Based on "wandenberg's nginx-push-stream-module":http://github.com/wandenberg/nginx-push-stream-module. Currently under development.
+Based on "nginxpushstream":http://www.nginxpushstream.com. Currently under development.
