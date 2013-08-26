@@ -11,3 +11,7 @@ misc/docs
 *.o
 misc/tools/publisher
 misc/tools/subscriber
+misc/testdeps/bin
+misc/testdeps/sbin
+misc/testdeps/redis
+misc/testdeps/nginx
