@@ -68,6 +68,11 @@ function create_symlinks {
   qpopd
 }
 
+function die {
+  echo $2 >&2
+  exit $1
+}
+
 SRCROOT_SUFFIX=src
 DEPS_ROOT="$(dirname_abs ${BASH_SOURCE[0]})"
 NGINX_ROOT="${DEPS_ROOT}/nginx"
@@ -83,12 +88,12 @@ REDIS_TAR_NAME="${REDIS_NAME}.tar.gz"
 fetch \
   "http://nginx.org/download/${NGINX_TAR_NAME}" \
   "${NGINX_SRCROOT}" "${NGINX_TAR_NAME}" \
-|| die "Failed to fetch ${NGINX_TAR_NAME}..."
+|| die 1 "Failed to fetch ${NGINX_TAR_NAME}."
 # Fetch redis
 fetch \
   "http://download.redis.io/releases/${REDIS_TAR_NAME}" \
   "${REDIS_SRCROOT}" "${REDIS_TAR_NAME}" \
-|| die "Failed to fetch ${REDIS_TAR_NAME}..."
+|| die 1 "Failed to fetch ${REDIS_TAR_NAME}."
 
 # Extract the source archives, and make "current" symlink point to them
 qpushd "${NGINX_SRCROOT}"
